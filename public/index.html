@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Content Downloader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Сборщик контента</h1>
+        
+        <!-- Блок 1: Поиск -->
+        <div class="card">
+            <h2>1. Поиск по базе</h2>
+            <div class="search-box">
+                <input type="text" id="keywordInput" placeholder="Введите: js, text или html">
+                <button id="searchBtn">Найти URL</button>
+            </div>
+            <div id="urlList" class="list-group"></div>
+        </div>
+
+        <!-- Блок 2: Загрузка -->
+        <div class="card" id="downloadSection" style="display:none;">
+            <h2>2. Загрузка контента</h2>
+            <p class="url-label">Источник: <span id="selectedUrl"></span></p>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar" style="width: 0%">0%</div>
+            </div>
+            <div class="status-text" id="statusText">Ожидание...</div>
+        </div>
+
+        <!-- Блок 3: Сохраненное (LocalStorage) -->
+        <div class="card">
+            <h2>3. Сохраненное (Offline)</h2>
+            <div class="controls">
+                <button id="refreshStorageBtn" class="secondary-btn">Обновить список</button>
+                <button id="clearStorageBtn" class="danger-btn">Очистить всё</button>
+            </div>
+            <div id="storageList" class="list-group"></div>
+        </div>
+
+        <!-- Блок 4: Просмотр -->
+        <div class="card viewer-card">
+            <h2>Просмотр файла</h2>
+            <pre id="contentViewer">Выберите файл из списка выше для просмотра...</pre>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
